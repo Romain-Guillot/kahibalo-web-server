@@ -16,6 +16,7 @@ responsible for:
 - **[Jade]():**
 - **[SCSS]():**
 
+
 ## Structure
 
 ```
@@ -26,6 +27,9 @@ responsible for:
 |----- shared           # general templates and components
 |----- pages            # main pages layout
 |- public               # static ressources
-|----- stylesheets      # .scss files
-|----- assets           # images
+|----- stylesheets      # Stylsheets files (.scss and the generated .css)
+|--------- pages        # Style specific to a page
+|----- assets           # static assets (images, ...)
 ```
+
+## Installation
