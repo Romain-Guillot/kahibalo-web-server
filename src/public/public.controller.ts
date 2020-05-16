@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Req, Query, Render } from "@nestjs/common";
+import { Controller, Get, Param, Req, Query, Render, HttpException, HttpStatus } from "@nestjs/common";
 import { PublicService } from "./public.services";
 
 @Controller()
@@ -8,17 +8,21 @@ export class PublicController {
     @Get()
     @Render('index')
     async index(@Query() req: any) : Promise<any> {
-        let a = await this.publicService.retrieveListEntries();
-        console.log(a.data);
-        return a.data;
+        try {
+            return await this.publicService.retrieveListEntries();
+        } catch (err) {
+            throw new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Get('entry/:id')
     @Render('entry')
-    async ntry(@Param('id') id: string) : Promise<any> {
-        let a = await this.publicService.retrieveEntry(id);
-        console.log(a.data);
-        return a.data;
+    async entry(@Param('id') id: string) : Promise<any> {
+        try {
+            return await this.publicService.retrieveEntry(id);
+        } catch(err) {
+            new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
+        }
     }
 
     @Get('categories')
