@@ -1,89 +1,9 @@
-html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-body {
-    background-color: rgb(40,40,40);
-    font-family: "Ubuntu";
-    font-size: 16px;
-}
+$back: rgb(40,40,40);
+$front: white;
+$base-fontsize: 16px;
+$radius: 3px;
+$font-family: "Ubuntu";
+$normal-width: 1500px;
 
-#app {
-    display: flex;
-    flex-flow: column;
-    width: 1500px;
-    margin: auto;
-    height: 100%;
-    #menu {
-        flex: 0 1 auto;
-        color: white;
-        display: flex;
-        align-items: center;
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            display: inline-block;
-            margin-right: 15px;
-        }
-        ul li:last-child {
-            margin-right: 0;
-        }
-        a {
-            color: white;
-            display: inline-block;
-            text-decoration: none;
-            margin-bottom: 2px;
-        }
-        a:hover {
-            border-bottom: 2px solid white;
-            margin-bottom: 0px;
-        }
-        .navigation-menu {
-            flex: 1;
-        }
-    }
-    #content {
-        flex: 1 1 auto;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-    }
-}
-
-#entry-container {
-    background-color: white;
-    border-radius: 3px 3px 3px 3px;
-    display: flex;
-    height: 99%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: absolute;
-
-    .content-entry {
-        flex: 1;
-        overflow-y: scroll;
-        padding: 40px;
-        h1 {
-            margin: 0 0 40px 0;
-            font-size: 3rem;
-            font-weight: 900;
-        }
-        p {
-            line-height: 1.4rem;
-            margin: 0 0 30px 0;
-        }
-    }
-
-    .image-entry {
-        max-width: 50%;
-        img {
-            display: block;
-            // border-radius: 0 3px 3px 0;
-            height: 100%;
-        }
-    }
-}
+@use 'base';
+@use 'pages/entry';
