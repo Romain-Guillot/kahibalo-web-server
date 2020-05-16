@@ -1,29 +1,35 @@
-import { Controller, Get, Param, Req, Query } from "@nestjs/common";
+import { Controller, Get, Param, Req, Query, Post, Body } from "@nestjs/common";
 
-@Controller()
+@Controller("admin")
 export class AdminController {
+
     @Get()
-    index(@Query() req) {
+    index() {
         
     }
 
-    @Get('entry/:id')
-    entry(@Param('id') id: string) {
+    @Post("login")
+    login(@Query() req) {
+        
+    }
+
+    @Get("writing/")
+    newEntry() {
 
     }
 
-    @Get('categories')
-    categories() {
+    @Post("writing/")
+    submitNewEntry(@Body() entry) {
 
     }
 
-    @Get('category/:id')
-    category(@Param('id') id: string) {
+    @Get("writing/:id")
+    editEntry(@Param('id') id: number) {
 
     }
 
-    @Get('random')
-    randomEntry() {
+    @Post("writing/:id")
+    submitEditEntry(@Param('id') id: number) {
 
     }
 }
