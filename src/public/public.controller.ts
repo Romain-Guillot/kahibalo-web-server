@@ -7,30 +7,34 @@ export class PublicController {
 
     @Get()
     @Render('index')
-    index(@Query() req: any) {
-        return this.publicService.retrieveListEntries();
+    async index(@Query() req: any) : Promise<any> {
+        let a = await this.publicService.retrieveListEntries();
+        console.log(a.data);
+        return a.data;
     }
 
     @Get('entry/:id')
-    @Render('index')
-    entry(@Param('id') id: string) {
-
+    @Render('entry')
+    async ntry(@Param('id') id: string) : Promise<any> {
+        let a = await this.publicService.retrieveEntry(id);
+        console.log(a.data);
+        return a.data;
     }
 
     @Get('categories')
-    @Render('index')
+    @Render('categories')
     categories() {
 
     }
 
     @Get('category/:id')
-    @Render('index')
+    @Render('category/:id')
     category(@Param('id') id: string) {
 
     }
 
     @Get('random')
-    @Render('index')
+    @Render('random')
     randomEntry() {
 
     }

@@ -1,6 +1,6 @@
 import { Injectable, HttpService } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { join } from 'path';
+import urljoin = require('url-join');
 
 @Injectable()
 export class PublicService {
@@ -11,11 +11,10 @@ export class PublicService {
     }
 
     async retrieveListEntries(): Promise<any> {
-        return await this.httpService.get(join(this.base_url, "entries")).toPromise();
+        return await this.httpService.get(urljoin(this.base_url, "entries")).toPromise();
     }
 
     async retrieveEntry(id: string): Promise<any> {
-        return await this.httpService.get(join(this.base_url, 'entries', id)).toPromise();
+        return await this.httpService.get(urljoin(this.base_url, 'entries', id)).toPromise();
     }
-    
 }

@@ -1,0 +1,89 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #282828;
+  font-family: "Ubuntu";
+  font-size: 16px;
+}
+
+#app {
+  display: flex;
+  flex-flow: column;
+  width: 1500px;
+  margin: auto;
+  height: 100%;
+}
+#app #menu {
+  flex: 0 1 auto;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+#app #menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+#app #menu ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+#app #menu ul li:last-child {
+  margin-right: 0;
+}
+#app #menu a {
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 2px;
+}
+#app #menu a:hover {
+  border-bottom: 2px solid white;
+  margin-bottom: 0px;
+}
+#app #menu .navigation-menu {
+  flex: 1;
+}
+#app #content {
+  flex: 1 1 auto;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#entry-container {
+  background-color: white;
+  border-radius: 3px 3px 3px 3px;
+  display: flex;
+  height: 99%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+}
+#entry-container .content-entry {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 40px;
+}
+#entry-container .content-entry h1 {
+  margin: 0 0 40px 0;
+  font-size: 3rem;
+  font-weight: 900;
+}
+#entry-container .content-entry p {
+  line-height: 1.4rem;
+  margin: 0 0 30px 0;
+}
+#entry-container .image-entry {
+  max-width: 50%;
+}
+#entry-container .image-entry img {
+  display: block;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,22 @@
+//- layout.pug
+html
+  head
+    link(
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" 
+        rel="stylesheet"
+    )
+    link(
+        href="/stylesheets/main.css" 
+        rel="stylesheet"
+    )
+    title Kahibalo - #{title}
+  body
+    #app
+        #menu
+            ul.navigation-menu
+                li: a(href="/") Home
+                li: a(href="/random") Random entry
+            ul.secondary-menu
+                li: a(href="/about") About
+        #content
+            block content
