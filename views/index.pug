@@ -1,8 +1,10 @@
 extends base.pug
 
 block content
-    h1 Welcome
+    div#entry-container
+        h1 Welcome
 
-    ul
-        each entry in content
-            p: a(href=`entry/${entry._id}`) #{entry.title}
+        ul
+            each entry in content
+                p: a(href=`entry/${entry._id}`) #{entry.title}
+

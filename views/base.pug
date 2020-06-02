@@ -1,14 +1,17 @@
 //- layout.pug
 html
   head
-    link(
-        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" 
-        rel="stylesheet"
-    )
-    link(
-        href="/stylesheets/main.css" 
-        rel="stylesheet"
-    )
+    block links
+        link(
+            href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" 
+            rel="stylesheet"
+        )
+        link(
+            href="/stylesheets/main.css" 
+            rel="stylesheet"
+        )
+    block scripts
+
     title Kahibalo - #{title}
   body
     #app
