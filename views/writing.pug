@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1' type='text/css' media='all' />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <textarea name="name" rows="8" cols="80" id="MyID"></textarea>
+
+        <script>
+            var simplemde = new SimpleMDE({
+                element: document.getElementById("MyID"),
+                spellChecker: false,
+                toolbar: [
+                    "bold", "italic", "|", "heading", "|", "horizontal-rule", "|", "code", "quote", "image", "link", "table",
+                    {
+                        name: "redText",
+                        action: (editor) => {
+                            var cm = editor.codemirror;
+                            var output = '';
+                            var selectedText = cm.getSelection();
+                            var text = selectedText || 'placeholder';
+
+                            output = '!!' + text + '!!';
+                            cm.replaceSelection(output);
+                        },
+                        className: "fa fa-date", // Look for a suitable icon
+                        title: "Red text (Ctrl/Cmd-Alt-R)",
+                    },
+                    "|", "unordered-list", "ordered-list", "|", "preview","fullscreen"
+                ]
+            });
+
+        </script>
+    </body>
+
+</html>

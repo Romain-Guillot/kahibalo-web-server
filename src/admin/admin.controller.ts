@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Req, Query, Post, Body } from "@nestjs/common";
+import { Controller, Get, Param, Req, Query, Post, Body, Render } from "@nestjs/common";
 
 @Controller("admin")
 export class AdminController {
@@ -14,8 +14,9 @@ export class AdminController {
     }
 
     @Get("writing/")
+    @Render("writing")
     newEntry() {
-
+        return null;
     }
 
     @Post("writing/")
