@@ -1,5 +1,8 @@
 extends base.pug
 
+block append head
+    - var title = 'Writing'
+
 block append links
     link(rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1' type='text/css' media='all')
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css")
@@ -10,12 +13,14 @@ block append scripts
 block content
     h1 Writing
 
-    
+
+    if error
+        .error: p #{error}
+
     form(action="/admin/writing" method="post")
         button(type="submit") Save
-        input(name="title")
         textarea(name="content" rows="8" cols="80" id="MyID")
-
+            | #{content}
         
     script.
         var simplemde = new SimpleMDE({
@@ -40,6 +45,7 @@ block content
                 "|", "unordered-list", "ordered-list", "|", "preview","fullscreen"
             ]
         });
+        
 
 
      

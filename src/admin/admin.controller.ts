@@ -27,10 +27,10 @@ export class AdminController {
     @Post("writing/")
     async submitNewEntry(@Res() res: Response, @Body() entry) : Promise<void> {
         try {
-            var response = await this.adminService.addEntry(entry);
+            var response = await this.adminService.addEntry(entry.content);
             res.redirect(`/entry/${response.id}`);
         } catch(err) {
-            console.log(err);
+            res.render("writing", {error: err, content: entry.content})
             new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
         }
     }

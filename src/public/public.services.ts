@@ -1,6 +1,7 @@
 import { Injectable, HttpService } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import urljoin = require('url-join');
+import marked = require('marked');
 import { AxiosResponse } from 'axios'
 
 
@@ -21,6 +22,7 @@ export class PublicService {
 
     async retrieveEntry(id: string): Promise<any> {
         let response = await this.httpService.get(urljoin(this.base_url, 'entries', id)).toPromise();
+        response.data.content = marked(response.data.content)
         if (response.status !== 200)
             throw new Error();
         return response.data;
