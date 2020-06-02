@@ -1,11 +1,12 @@
 extends base.pug
 
 block content
-    div#entry-container
-        div.content-entry
+
+    #entry-container
+        #entry-content
+            include includes/header.pug
             h1 #{title} 
             #{content}
 
-
-        div.image-entry
+        #entry-image
             img(src="https://live.staticflickr.com/5126/5238211378_195bb2a700_b.jpg")

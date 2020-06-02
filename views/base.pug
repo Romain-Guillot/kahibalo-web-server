@@ -17,12 +17,31 @@ html
         if title
             | &nbsp;• #{title}
   body
-    #app
-        #menu
-            ul.navigation-menu
-                li: a(href="/") Home
-                li: a(href="/random") Random entry
-            ul.secondary-menu
-                li: a(href="/about") About
-        #content
-            block content
+    main#app
+        block content
+
+    script.
+        const DARK_THEME = "dark-theme";
+        const LIGHT_THEME = "light-theme";
+        const THEME_KEY = "theme";
+
+        function setTheme(theme) {
+            localStorage.setItem(THEME_KEY, theme);
+            document.body.className = theme;
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem(THEME_KEY) === DARK_THEME){
+                setTheme(LIGHT_THEME);
+            } else {
+                setTheme(DARK_THEME);
+            }
+        }
+
+        (function () {
+            if (localStorage.getItem(THEME_KEY) === DARK_THEME) {
+                setTheme(DARK_THEME);
+            } else {
+                setTheme(LIGHT_THEME);
+            }
+        })();

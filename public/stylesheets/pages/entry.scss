@@ -32,3 +32,22 @@
 //         }
 //     }
 // }
+
+#entry-container {
+    display: grid;
+    grid-template-areas: "content image";
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+    min-height: 0;  /* NEW */
+    min-width: 0;   /* NEW; needed for Firefox */
+    #entry-content {
+        grid-area: content;
+    }
+
+    #entry-image {
+        grid-area: image;
+        img {
+            width: 100%;
+        }
+    }
+}

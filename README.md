@@ -13,7 +13,7 @@ responsible for:
 ## Technologies
 - **[Node.js]():**
 - **[Nest.js]():**
-- **[Jade]():**
+- **[Jade / Pug]():**
 - **[SCSS]():**
 
 
@@ -33,3 +33,18 @@ responsible for:
 ```
 
 ## Installation
+
+```bash
+$ npm install
+```
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```

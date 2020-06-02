@@ -1,12 +1,17 @@
+
+
 html, body {
-    height: 100%;
     padding: 0;
     margin: 0;
 }
 body {
-    background-color: rgb(40,40,40);
+    // background-color: rgb(40,40,40);
     font-family: "Ubuntu";
     font-size: 16px;
+    --surface-color: white;
+    --on-surface: black;
+    background-color: var(--surface-color);
+    color: var(--on-surface);
 }
 
 #app {
@@ -16,8 +21,6 @@ body {
     margin: auto;
     // height: 100%;
     #menu {
-        flex: 0 1 auto;
-        color: white;
         display: flex;
         align-items: center;
         ul {
@@ -32,14 +35,17 @@ body {
             margin-right: 0;
         }
         a {
-            color: white;
+            color: var(--on-surface);
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 0.9em;
             display: inline-block;
             text-decoration: none;
             margin-bottom: 2px;
-        }
-        a:hover {
-            border-bottom: 2px solid white;
-            margin-bottom: 0px;
+            &:hover {
+                border-bottom: 2px solid var(--on-surface);
+                margin-bottom: 0px;
+            }
         }
         .navigation-menu {
             flex: 1;
@@ -51,4 +57,11 @@ body {
     //     overflow: hidden;
     //     position: relative;
     // }
+}
+
+
+.dark-theme {
+    --surface-color: black;
+    --on-surface: white;
+
 }

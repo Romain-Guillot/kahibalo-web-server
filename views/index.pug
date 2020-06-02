@@ -1,10 +1,11 @@
 extends base.pug
 
 block content
-    div#entry-container
-        h1 Welcome
+    include includes/header.pug
 
-        ul
-            each entry in content
-                p: a(href=`entry/${entry._id}`) #{entry.title}
+    h1 Welcome
+
+    ul
+        each entry in content
+            p: a(href=`entry/${entry._id}`) #{entry.title}
 
