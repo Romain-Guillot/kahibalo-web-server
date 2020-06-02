@@ -10,10 +10,11 @@ block append scripts
 block content
     h1 Writing
 
-    button Save    
-
     
-    textarea(name="name" rows="8" cols="80" id="MyID")
+    form(action="/admin/writing" method="post")
+        button(type="submit") Save
+        input(name="title")
+        textarea(name="content" rows="8" cols="80" id="MyID")
 
         
     script.

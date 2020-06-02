@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Req, Query, Render, HttpException, HttpStatus } from "@nestjs/common";
 import { PublicService } from "./public.services";
 
+
 @Controller()
 export class PublicController {
     constructor(private publicService: PublicService) { }

@@ -3,6 +3,7 @@ import { ConfigService } from "@nestjs/config";
 import urljoin = require('url-join');
 import { AxiosResponse } from 'axios'
 
+
 @Injectable()
 export class PublicService {
     private base_url: string;
