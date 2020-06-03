@@ -3,9 +3,11 @@ extends base.pug
 block content
     include includes/header.pug
 
-    h1 Welcome
+    h2 Tags
+    p soon ...
 
+    h2 Entries
     ul
         each entry in content
-            p: a(href=`entry/${entry._id}`) #{entry.title}
+            li: a(href=`entry/${entry._id}`) #{entry.title}
 

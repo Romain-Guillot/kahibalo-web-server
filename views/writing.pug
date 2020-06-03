@@ -11,20 +11,29 @@ block append scripts
     script(src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js")
 
 block content
+    include includes/header.pug
+
+
     h1 Writing
 
 
-    if error
-        .error: p #{error}
+    #writing
+        if error
+            .error: p 
 
-    form(action="/admin/writing" method="post")
-        button(type="submit") Save
-        textarea(name="content" rows="8" cols="80" id="MyID")
-            | #{content}
+        if _id
+            - var action = `/admin/writing/${_id}`
+        else
+            - var action = `/admin/writing`
+
+        form(action=action method="post")
+            button(type="submit") Save
+            textarea(name="content" id="editor")
+                | #{content}
         
     script.
         var simplemde = new SimpleMDE({
-            element: document.getElementById("MyID"),
+            element: document.getElementById("editor"),
             spellChecker: false,
             toolbar: [
                 "bold", "italic", "|", "heading", "|", "horizontal-rule", "|", "code", "quote", "image", "link", "table",
@@ -45,6 +54,8 @@ block content
                 "|", "unordered-list", "ordered-list", "|", "preview","fullscreen"
             ]
         });
+
+
         
 
 

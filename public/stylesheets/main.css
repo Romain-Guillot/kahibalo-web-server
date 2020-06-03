@@ -33,20 +33,25 @@ body {
   margin-right: 0;
 }
 #app #menu a {
-  color: var(--on-surface);
   text-transform: uppercase;
-  font-weight: 500;
   font-size: 0.9em;
-  display: inline-block;
-  text-decoration: none;
-  margin-bottom: 2px;
-}
-#app #menu a:hover {
-  border-bottom: 2px solid var(--on-surface);
-  margin-bottom: 0px;
 }
 #app #menu .navigation-menu {
   flex: 1;
+}
+
+a, button {
+  color: var(--on-surface);
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 2px;
+  background: none;
+  border: none;
+}
+a:hover, button:hover {
+  border-bottom: 2px solid var(--on-surface);
+  margin-bottom: 0px;
 }
 
 .dark-theme {

@@ -1,9 +1,8 @@
-
-
 html, body {
     padding: 0;
     margin: 0;
 }
+
 body {
     // background-color: rgb(40,40,40);
     font-family: "Ubuntu";
@@ -15,11 +14,8 @@ body {
 }
 
 #app {
-    // display: flex;
-    // flex-flow: column;
     width: 1500px;
     margin: auto;
-    // height: 100%;
     #menu {
         display: flex;
         align-items: center;
@@ -35,28 +31,30 @@ body {
             margin-right: 0;
         }
         a {
-            color: var(--on-surface);
             text-transform: uppercase;
-            font-weight: 500;
             font-size: 0.9em;
-            display: inline-block;
-            text-decoration: none;
-            margin-bottom: 2px;
-            &:hover {
-                border-bottom: 2px solid var(--on-surface);
-                margin-bottom: 0px;
-            }
+
+
         }
         .navigation-menu {
             flex: 1;
         }
     }
-    // #content {
-    //     flex: 1 1 auto;
-    //     height: 100%;
-    //     overflow: hidden;
-    //     position: relative;
-    // }
+}
+
+a, button {
+    color: var(--on-surface);
+    font-weight: 500;
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 2px;
+    background: 
+    none;
+    border: none;
+    &:hover {
+        border-bottom: 2px solid var(--on-surface);
+        margin-bottom: 0px;
+    }
 }
 
 

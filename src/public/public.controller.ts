@@ -1,10 +1,11 @@
 import { Controller, Get, Param, Req, Query, Render, HttpException, HttpStatus } from "@nestjs/common";
 import { PublicService } from "./public.services";
+import { MarkdownService } from "src/markdown.service";
 
 
 @Controller()
 export class PublicController {
-    constructor(private publicService: PublicService) { }
+    constructor(private publicService: PublicService, private markdownService: MarkdownService) { }
 
     @Get()
     @Render('index')
@@ -20,7 +21,10 @@ export class PublicController {
     @Render('entry')
     async entry(@Param('id') id: string) : Promise<any> {
         try {
-            return await this.publicService.retrieveEntry(id);
+            let entry = await this.publicService.retrieveEntry(id);
+            let contentHTML = this.markdownService.markdownToHtml(entry.content);
+            entry.content = contentHTML;
+            return entry;
         } catch(err) {
             new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
         }
