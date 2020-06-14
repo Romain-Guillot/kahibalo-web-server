@@ -1,0 +1,20 @@
+#login-container {
+    .input-field {
+        margin: 10px 0;
+        label {
+            display: block;
+        }
+        input {
+            border-radius: 3px;
+            border: 2px solid black;
+            padding: 5px;
+            display: block;
+            width: 300px;
+        }
+        button {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+    }
+}

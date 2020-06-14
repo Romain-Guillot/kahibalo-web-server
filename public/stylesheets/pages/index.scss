@@ -1,0 +1,42 @@
+#index-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 50px;
+    #tags-container {
+        ul {
+            padding: 0;
+            list-style-type: none;
+            li {
+                padding: 5px 0;
+                a {
+                    display: inline-flex;
+                    align-items: center;
+                    div {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 12px;
+                        margin-right: 5px;
+                    }
+                }
+                
+            }
+        }
+    }
+    #entries-container {
+        > ul {
+            padding: 0;
+            list-style-type: none;
+            li {
+            //     a {
+            //         display: block;
+                    padding: 5px 0;
+            //         border-bottom: 2px solid rgba(0,0,0,0.1);
+            //     }
+            //     a:hover {
+            //         border-bottom: 2px solid rgba(0,0,0,1);
+            //         margin-bottom: 0;
+            //     }
+            }
+        }
+    }
+}

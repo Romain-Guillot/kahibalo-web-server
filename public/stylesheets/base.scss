@@ -14,8 +14,9 @@ body {
 }
 
 #app {
-    width: 1500px;
-    margin: auto;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 15px;
     #menu {
         display: flex;
         align-items: center;
@@ -43,6 +44,7 @@ body {
 }
 
 a, button {
+    -webkit-appearance: button;
     color: var(--on-surface);
     font-weight: 500;
     display: inline-block;
@@ -55,6 +57,9 @@ a, button {
         border-bottom: 2px solid var(--on-surface);
         margin-bottom: 0px;
     }
+}
+button {
+    font-weight: 700;
 }
 
 

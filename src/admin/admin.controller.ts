@@ -14,8 +14,15 @@ export class AdminController {
         
     }
 
-    @Post("login")
+    @Get("login")
+    @Render("login")
     login(@Query() req) {
+        
+    }
+
+    @Post("login")
+    @Render("login")
+    submitLogin(@Query() req) {
         
     }
 

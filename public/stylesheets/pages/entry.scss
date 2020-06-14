@@ -42,6 +42,9 @@
     min-width: 0;   /* NEW; needed for Firefox */
     #entry-content {
         grid-area: content;
+        img {
+            max-width: 50%;
+        }
     }
 
     #entry-image {

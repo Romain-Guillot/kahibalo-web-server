@@ -1,0 +1,19 @@
+extends base.pug
+
+block content
+    include includes/header.pug
+
+    #login-container
+        h1 Admin
+
+        form
+            .input-field
+                label Email
+                input(type="text")
+
+            .input-field
+                label Password
+                input(type="password")
+
+            .input-field
+                button(type="submit") Log in

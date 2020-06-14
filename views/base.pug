@@ -26,8 +26,10 @@ html
         const THEME_KEY = "theme";
 
         function setTheme(theme) {
+            button = document.getElementById("theme-toggle");
             localStorage.setItem(THEME_KEY, theme);
             document.body.className = theme;
+            button.innerText = theme === DARK_THEME ? "Light" : "Dark"
         }
 
         function toggleTheme() {

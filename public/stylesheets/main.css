@@ -14,8 +14,9 @@ body {
 }
 
 #app {
-  width: 1500px;
-  margin: auto;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 #app #menu {
   display: flex;
@@ -41,6 +42,7 @@ body {
 }
 
 a, button {
+  -webkit-appearance: button;
   color: var(--on-surface);
   font-weight: 500;
   display: inline-block;
@@ -54,9 +56,43 @@ a:hover, button:hover {
   margin-bottom: 0px;
 }
 
+button {
+  font-weight: 700;
+}
+
 .dark-theme {
   --surface-color: black;
   --on-surface: white;
+}
+
+#index-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 50px;
+}
+#index-container #tags-container ul {
+  padding: 0;
+  list-style-type: none;
+}
+#index-container #tags-container ul li {
+  padding: 5px 0;
+}
+#index-container #tags-container ul li a {
+  display: inline-flex;
+  align-items: center;
+}
+#index-container #tags-container ul li a div {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  margin-right: 5px;
+}
+#index-container #entries-container > ul {
+  padding: 0;
+  list-style-type: none;
+}
+#index-container #entries-container > ul li {
+  padding: 5px 0;
 }
 
 #entry-container {
@@ -72,6 +108,9 @@ a:hover, button:hover {
 #entry-container #entry-content {
   grid-area: content;
 }
+#entry-container #entry-content img {
+  max-width: 50%;
+}
 #entry-container #entry-image {
   grid-area: image;
 }
@@ -85,6 +124,25 @@ a:hover, button:hover {
   font-weight: 900;
   content: "";
   /* font-weight: 900; */
+}
+
+#login-container .input-field {
+  margin: 10px 0;
+}
+#login-container .input-field label {
+  display: block;
+}
+#login-container .input-field input {
+  border-radius: 3px;
+  border: 2px solid black;
+  padding: 5px;
+  display: block;
+  width: 300px;
+}
+#login-container .input-field button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
 /*# sourceMappingURL=main.css.map */

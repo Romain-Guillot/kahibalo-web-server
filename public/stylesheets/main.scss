@@ -6,5 +6,7 @@ $font-family: "Ubuntu";
 $normal-width: 1500px;
 
 @use 'base';
+@use 'pages/index';
 @use 'pages/entry';
 @use 'pages/editor';
+@use 'pages/login';

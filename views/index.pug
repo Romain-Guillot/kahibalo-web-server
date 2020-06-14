@@ -3,11 +3,18 @@ extends base.pug
 block content
     include includes/header.pug
 
-    h2 Tags
-    p soon ...
+    #index-container
+        #tags-container
+            h2 Tags
+            ul
+                each tag in tags
+                    li: a(href="") 
+                        div(style=`background: ${tag.color}`)
+                        span #{tag.name}
 
-    h2 Entries
-    ul
-        each entry in content
-            li: a(href=`entry/${entry._id}`) #{entry.title}
+        #entries-container
+            h2 Entries
+            ul
+                each entry in entries.content
+                    li: a(href=`entry/${entry._id}`) #{entry.title}
 

@@ -11,7 +11,15 @@ export class PublicController {
     @Render('index')
     async index(@Query() req: any) : Promise<any> {
         try {
-            return await this.publicService.retrieveListEntries();
+            return {
+                entries: await this.publicService.retrieveListEntries(),
+                tags: [
+                    {name: "Histoire", color: "#4287f5"},
+                    {name: "Musique", color: "#9c369e"},
+                    {name: "Personnage", color: "#3ac769"},
+                    {name: "Géographie", color: "#c7364e"},
+                ]
+            };
         } catch (err) {
             throw new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR);
         }
