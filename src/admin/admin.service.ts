@@ -15,7 +15,7 @@ export class AdminService {
     
     // return the slug ot the created article
     async addEntry(entryPlainText: string) : Promise<string> {
-        let article = this.markdownService.buildArticleObject(entryPlainText);
+        let article = this.markdownService.buildArticle(entryPlainText);
         let response = await this.httpService.post(
             urljoin(this.base_url, "entries"),
             article
@@ -26,12 +26,13 @@ export class AdminService {
     }
 
     async editEntry(id: string, entryPlainText: string) : Promise<void> {
-        let article = this.markdownService.buildArticleObject(entryPlainText);
+        let article = this.markdownService.buildArticle(entryPlainText);
         let response = await this.httpService.put(
             urljoin(this.base_url, "entries", id),
             article
         ).toPromise();
-        if (response.status !== 201)
+        if (response.status !== 200) {
             throw new Error();
+        }
     }
 }

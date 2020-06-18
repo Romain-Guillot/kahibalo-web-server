@@ -15,6 +15,6 @@ block content
         #entries-container
             h2 Entries
             ul
-                each entry in entries.content
+                each entry in entries.entries
                     li: a(href=`entry/${entry._id}`) #{entry.title}
 

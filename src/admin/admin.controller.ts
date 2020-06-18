@@ -2,11 +2,12 @@ import { Controller, Get, Param, Req, Query, Post, Body, Render, HttpException, 
 import { AdminService } from "./admin.service";
 import { Response } from 'express';
 import { PublicService } from "src/public/public.services";
+import { MarkdownService } from "src/markdown.service";
 
 
 @Controller("admin")
 export class AdminController {
-    constructor(private adminService: AdminService, private publicService: PublicService) { }
+    constructor(private adminService: AdminService, private publicService: PublicService, private markdownService: MarkdownService) { }
 
 
     @Get()
@@ -38,6 +39,7 @@ export class AdminController {
             var articleID = await this.adminService.addEntry(entry.content);
             res.redirect(`/entry/${articleID}`);
         } catch(err) {
+            console.log(err);
             res.render("writing", {error: err, content: entry.content})
             new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
         }
@@ -52,17 +54,18 @@ export class AdminController {
     async editEntry(@Param('id') id: string) : Promise<any> {
         try {
             let article = await this.publicService.retrieveEntry(id);
-            article.content = `# ${article.title}\n` + article.content ;
-            return article;
+            let articleMd = this.markdownService.formatArticle(article);
+            return {_id: article._id, content: articleMd};
         } catch(err) {
             new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
         }
     }
 
     @Post("writing/:id")
-    async submitEditEntry(@Param('id') id: string, @Body() entry) : Promise<void> {
+    async submitEditEntry(@Res() res: Response, @Param('id') id: string, @Body() entry) : Promise<void> {
         try {
             await this.adminService.editEntry(id, entry.content);
+            res.redirect(`/entry/${id}`);
         } catch(err) {
             new HttpException("", HttpStatus.INTERNAL_SERVER_ERROR); 
         }
