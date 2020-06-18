@@ -3,7 +3,7 @@ extends base.pug
 block append head
     - var title = 'Writing'
 
-block append links
+block prepend links
     link(rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1' type='text/css' media='all')
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css")
 
@@ -43,15 +43,15 @@ block content
                         var cm = editor.codemirror;
                         var output = '';
                         var selectedText = cm.getSelection();
-                        var text = selectedText || 'placeholder';
+                        var text = selectedText || 'image: [URL]';
 
-                        output = '!!' + text + '!!';
+                        output = '<--\n' + text + '\n-->\n';
                         cm.replaceSelection(output);
                     },
                     className: "fa fa-date", // Look for a suitable icon
                     title: "Red text (Ctrl/Cmd-Alt-R)",
                 },
-                "|", "unordered-list", "ordered-list", "|", "preview","fullscreen"
+                "|", "unordered-list", "ordered-list", "|", "preview"
             ]
         });
 

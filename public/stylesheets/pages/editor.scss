@@ -5,3 +5,19 @@
     content: "\f271";
     /* font-weight: 900; */
 }
+
+.dark-theme {
+    .editor-toolbar a {
+        color: white !important;
+    }
+    .CodeMirror-cursor{
+        width: 1px;
+        border: 0 !important;
+        background: white !important
+    }
+}
+
+.CodeMirror {
+    color: inherit;
+    background-color: inherit;
+}

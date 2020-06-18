@@ -126,6 +126,20 @@ button {
   /* font-weight: 900; */
 }
 
+.dark-theme .editor-toolbar a {
+  color: white !important;
+}
+.dark-theme .CodeMirror-cursor {
+  width: 1px;
+  border: 0 !important;
+  background: white !important;
+}
+
+.CodeMirror {
+  color: inherit;
+  background-color: inherit;
+}
+
 #login-container .input-field {
   margin: 10px 0;
 }
